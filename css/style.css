@@ -252,8 +252,10 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 .marquee-strip { overflow: hidden; background: var(--paper); border-top: 1px solid var(--gray-300); border-bottom: 1px solid var(--gray-300); padding: 1.6rem 0; }
 .marquee-strip.dark { background: var(--black); border-color: rgba(255,255,255,0.1); }
 .marquee-track { display: flex; align-items: center; width: max-content; white-space: nowrap; will-change: transform; }
-.marquee-track span { font-family: var(--font-display); font-size: 1.5rem; font-style: italic; color: var(--text-on-light); padding: 0 1.4rem; }
-.marquee-strip.dark .marquee-track span { color: var(--text-on-dark); }
+.marquee-track span, .marquee-track a { font-family: var(--font-display); font-size: 1.5rem; font-style: italic; color: var(--text-on-light); padding: 0 1.4rem; }
+.marquee-strip.dark .marquee-track span, .marquee-strip.dark .marquee-track a { color: var(--text-on-dark); }
+.marquee-track a { transition: color 0.3s; }
+.marquee-track a:hover { color: var(--blue); }
 .marquee-track .dot { font-style: normal; color: var(--blue); font-family: var(--font-body); padding: 0 0.4rem; }
 
 /* ==========================================================================
@@ -454,7 +456,7 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
   .hero-heading { font-size: clamp(2.1rem, 9.6vw, 3.6rem); line-height: 1.1; max-width: 13ch; }
   .cta-heading { font-size: clamp(2.2rem, 11vw, 3.2rem); }
   .stats-grid { grid-template-columns: 1fr; }
-  .marquee-track span { font-size: 1.1rem; }
+  .marquee-track span, .marquee-track a { font-size: 1.1rem; }
   .btn { width: 100%; justify-content: center; }
   .hero-actions, .cta-actions { flex-direction: column; }
 }
