@@ -261,6 +261,73 @@
   }
 
   /* ------------------------------------------------------------------
+     Depoimentos — carrossel de reviews (arrows, dots, drag-to-scroll)
+  ------------------------------------------------------------------ */
+  const reviewsViewport = document.getElementById("reviews-viewport");
+  if (reviewsViewport) {
+    const track = document.getElementById("reviews-track");
+    const slides = Array.from(track.children);
+    const prevBtn = document.getElementById("reviews-prev");
+    const nextBtn = document.getElementById("reviews-next");
+    const dotsWrap = document.getElementById("reviews-dots");
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement("button");
+      dot.setAttribute("aria-label", `Ir para avaliação ${i + 1}`);
+      dot.addEventListener("click", () => slides[i].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" }));
+      dotsWrap.appendChild(dot);
+    });
+    const dots = Array.from(dotsWrap.children);
+
+    function closestSlideIndex() {
+      const center = reviewsViewport.scrollLeft + reviewsViewport.clientWidth / 2;
+      let closest = 0, minDist = Infinity;
+      slides.forEach((s, i) => {
+        const dist = Math.abs(s.offsetLeft + s.offsetWidth / 2 - center);
+        if (dist < minDist) { minDist = dist; closest = i; }
+      });
+      return closest;
+    }
+
+    function updateUI() {
+      const active = closestSlideIndex();
+      dots.forEach((d, i) => d.classList.toggle("active", i === active));
+      prevBtn.disabled = reviewsViewport.scrollLeft <= 4;
+      nextBtn.disabled = reviewsViewport.scrollLeft >= reviewsViewport.scrollWidth - reviewsViewport.clientWidth - 4;
+    }
+
+    prevBtn.addEventListener("click", () => {
+      const target = Math.max(0, closestSlideIndex() - 1);
+      slides[target].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+    });
+    nextBtn.addEventListener("click", () => {
+      const target = Math.min(slides.length - 1, closestSlideIndex() + 1);
+      slides[target].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+    });
+
+    reviewsViewport.addEventListener("scroll", () => updateUI(), { passive: true });
+
+    // Mouse drag-to-scroll (desktop)
+    let isDown = false, startX = 0, startScroll = 0;
+    reviewsViewport.addEventListener("pointerdown", (e) => {
+      isDown = true;
+      reviewsViewport.classList.add("dragging");
+      startX = e.clientX;
+      startScroll = reviewsViewport.scrollLeft;
+    });
+    window.addEventListener("pointermove", (e) => {
+      if (!isDown) return;
+      reviewsViewport.scrollLeft = startScroll - (e.clientX - startX);
+    });
+    window.addEventListener("pointerup", () => {
+      isDown = false;
+      reviewsViewport.classList.remove("dragging");
+    });
+
+    updateUI();
+  }
+
+  /* ------------------------------------------------------------------
      Estatísticas — counters
   ------------------------------------------------------------------ */
   document.querySelectorAll(".stat-number").forEach((el) => {

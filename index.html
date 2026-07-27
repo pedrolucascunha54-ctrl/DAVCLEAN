@@ -397,22 +397,39 @@
 
   <!-- DEPOIMENTOS -->
   <section class="section-testimonials" id="depoimentos">
-    <span class="section-label">007 / Depoimentos</span>
-    <h2 class="section-heading">O que dizem os ambientes<br>que já elevamos.</h2>
-    <div class="testimonials-track">
-      <blockquote class="testimonial-card" data-reveal="fade-up">
-        <p>“A diferença apareceu no primeiro serviço. Nossos carpetes voltaram a parecer novos, e o processo aconteceu inteiramente fora do horário comercial, sem qualquer transtorno.”</p>
-        <footer><span>Gerente de Facilities</span><span>Escritório Corporativo — São Paulo</span></footer>
-      </blockquote>
-      <blockquote class="testimonial-card" data-reveal="slide-left">
-        <p>“Trabalhamos com a DAVCLEAN há três anos. O relatório técnico após cada visita nos dá segurança para apresentar o serviço à diretoria.”</p>
-        <footer><span>Diretora Administrativa</span><span>Rede Hoteleira</span></footer>
-      </blockquote>
-      <blockquote class="testimonial-card" data-reveal="slide-right">
-        <p>“Precisão é a palavra certa. Equipe uniformizada, pontual, e um resultado que se sustenta muito além da limpeza comum.”</p>
-        <footer><span>Coordenador de Manutenção</span><span>Centro Empresarial</span></footer>
-      </blockquote>
+    <div class="testimonials-header">
+      <span class="section-label">007 / Depoimentos</span>
+      <h2 class="section-heading">O que dizem os ambientes<br>que já elevamos.</h2>
+      <p class="reviews-sub">Avaliações reais de clientes, direto do Google.</p>
     </div>
+    <div class="reviews-carousel">
+      <button class="carousel-arrow prev" id="reviews-prev" aria-label="Avaliação anterior">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M15 5L8 12L15 19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="reviews-viewport" id="reviews-viewport">
+        <div class="reviews-track" id="reviews-track">
+          <figure class="review-slide" data-reveal="fade-up">
+            <img src="images/reviews/review-1.jpg" alt="Avaliação 5 estrelas de Renata Fuga no Google: Atendimento célere e de excelente qualidade. Limpei e impermeabilizei uma poltrona, um sofá grande e 08 cadeiras. Eles também lavaram meu tapete persa. Recomendo altamente o trabalho deles." width="464" height="337" loading="lazy">
+          </figure>
+          <figure class="review-slide" data-reveal="slide-left">
+            <img src="images/reviews/review-2.jpg" alt="Avaliação 5 estrelas de Andressa Ricci no Google: Gostaríamos de agradecer pelo excelente serviço de higienização de estofados realizado. Ficamos muito satisfeitos com a qualidade, organização e atenção aos detalhes demonstrados pela equipe." width="470" height="340" loading="lazy">
+          </figure>
+          <figure class="review-slide" data-reveal="slide-right">
+            <img src="images/reviews/review-3.jpg" alt="Avaliação 5 estrelas de Leia Fontenele no Google: É a segunda vez que solicito o trabalho de limpeza para o meu sofá e todas as vezes o trabalho é impecável. Destaco o compromisso, pontualidade e organização na execução do trabalho." width="485" height="469" loading="lazy">
+          </figure>
+          <figure class="review-slide" data-reveal="scale-up">
+            <img src="images/reviews/review-4.jpg" alt="Avaliação 5 estrelas de Flávio Souza no Google: Excelente profissional, fez tudo com muito cuidado e rapidez! Super recomendo." width="480" height="422" loading="lazy">
+          </figure>
+          <figure class="review-slide" data-reveal="fade-up">
+            <img src="images/reviews/review-5.jpg" alt="Avaliação 5 estrelas de Gabriela Collino no Google: Excelente trabalho. Pontuais, rápidos, cuidadosos e caprichosos no trabalho. Recomendo." width="479" height="417" loading="lazy">
+          </figure>
+        </div>
+      </div>
+      <button class="carousel-arrow next" id="reviews-next" aria-label="Próxima avaliação">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+    <div class="carousel-dots" id="reviews-dots"></div>
   </section>
 
   <!-- EMPRESAS ATENDIDAS -->
