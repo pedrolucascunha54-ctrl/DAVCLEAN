@@ -204,7 +204,7 @@
     .forEach((p) => {
       const words = splitIntoWords(p);
       if (!words || !words.length) return;
-      gsap.set(words, { opacity: 0.16 });
+      gsap.set(words, { opacity: 0.45 });
       ScrollTrigger.create({
         trigger: p,
         start: "top 95%",
@@ -214,7 +214,7 @@
           const n = words.length;
           words.forEach((w, i) => {
             const revealAt = i / n;
-            w.style.opacity = revealAt <= self.progress ? 1 : 0.16;
+            w.style.opacity = revealAt <= self.progress ? 1 : 0.45;
           });
         },
       });
