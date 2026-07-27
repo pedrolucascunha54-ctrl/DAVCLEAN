@@ -400,7 +400,7 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 .footer-top { max-width: var(--container); margin: 0 auto 4rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
 .footer-top .logo { font-size: 2rem; }
 .footer-top p { margin-top: 1.2rem; max-width: 32em; color: var(--text-muted-dark); }
-.footer-grid { max-width: var(--container); margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; padding-bottom: 4rem; }
+.footer-grid { max-width: var(--container); margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding-bottom: 4rem; }
 .footer-col h4 { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted-dark); margin-bottom: 1.1rem; }
 .footer-col p, .footer-col a { display: block; font-size: 0.92rem; color: var(--text-on-dark); margin-bottom: 0.5rem; }
 .footer-col a { opacity: 0.85; transition: opacity .3s; }
