@@ -354,14 +354,15 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 .reviews-viewport.dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
 .reviews-track { display: flex; gap: 1.6rem; width: max-content; padding: 0.5rem 0.2rem; }
 .review-slide {
-  flex: 0 0 auto; height: 460px; scroll-snap-align: center;
-  border-radius: 4px; overflow: hidden;
+  flex: 0 0 auto; width: min(520px, 80vw); height: 460px; scroll-snap-align: center;
+  border-radius: 4px; overflow: hidden; background: #1b1c1f;
   box-shadow: 0 30px 60px -24px rgba(20,20,15,0.28);
   transform: rotate(var(--tilt, 0deg));
+  display: flex; align-items: center; justify-content: center;
 }
 .review-slide:nth-child(odd) { --tilt: -0.6deg; }
 .review-slide:nth-child(even) { --tilt: 0.6deg; }
-.review-slide img { height: 100%; width: auto; display: block; pointer-events: none; }
+.review-slide img { max-width: 100%; max-height: 100%; width: auto; height: auto; display: block; pointer-events: none; }
 
 .carousel-arrow {
   flex: 0 0 auto; width: 52px; height: 52px; border-radius: 50%;
@@ -425,9 +426,9 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 }
 
 @media (max-width: 640px) {
-  .review-slide { height: 340px; }
-  .carousel-arrow { width: 44px; height: 44px; }
-  .reviews-carousel { gap: 0.8rem; }
+  .review-slide { width: 86vw; height: 65vw; }
+  .carousel-arrow { display: none; }
+  .reviews-carousel { gap: 0; }
 }
 
 @media (max-width: 860px) {
