@@ -257,12 +257,27 @@
      Marquee strips
   ------------------------------------------------------------------ */
   document.querySelectorAll(".marquee-track").forEach((track) => {
+    const container = track.parentElement;
+    // The markup ships with one repeated "set" already duplicated once.
+    // Rebuild from a single set, then clone it enough times so that ONE
+    // set alone always covers the container width — otherwise, on wide
+    // screens, a blank gap shows before the loop wraps around.
+    const children = Array.from(track.children);
+    const baseHTML = children.slice(0, children.length / 2).map((c) => c.outerHTML).join("");
+    track.innerHTML = baseHTML;
+    while (track.scrollWidth < container.clientWidth) {
+      track.insertAdjacentHTML("beforeend", baseHTML);
+    }
+    // Duplicate the now-sufficiently-wide set once more for the seamless loop.
+    track.insertAdjacentHTML("beforeend", track.innerHTML);
+
     const dir = parseFloat(track.dataset.speed) || 1;
     const totalWidth = track.scrollWidth / 2;
+    const duration = totalWidth / 42; // ~42px/s, consistent pace regardless of content width
     gsap.fromTo(
       track,
       { x: dir < 0 ? 0 : -totalWidth },
-      { x: dir < 0 ? -totalWidth : 0, duration: 32, ease: "none", repeat: -1 }
+      { x: dir < 0 ? -totalWidth : 0, duration, ease: "none", repeat: -1 }
     );
   });
 
