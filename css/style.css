@@ -285,6 +285,7 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
    used to pair two related services in a single section
    ========================================================================== */
 .split-section { position: relative; display: flex; min-height: 100vh; background: var(--paper); }
+.split-section.reverse { flex-direction: row-reverse; }
 .split-media { flex: 0 0 50%; position: sticky; top: 0; height: 100vh; overflow: hidden; align-self: flex-start; }
 .split-media video { width: 100%; height: 100%; object-fit: cover; background: var(--graphite); }
 .split-content {
@@ -490,7 +491,7 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
   .section-stats, .section-gallery, .section-testimonials { padding-top: 7rem; padding-bottom: 7rem; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; gap: 0.5rem; }
-  .split-section { flex-direction: column; min-height: 0; }
+  .split-section, .split-section.reverse { flex-direction: column; min-height: 0; }
   .split-media { position: relative; flex: 0 0 auto; width: 100%; height: 60vh; top: auto; }
   .split-content { width: 100%; padding: 4.5rem var(--gutter); gap: 3rem; }
 }
