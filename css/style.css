@@ -247,6 +247,12 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 
 /* Section intro strips (light bg, precedes a run of video sections) */
 .section-intro { padding: 8rem var(--gutter) 4rem; background: var(--paper); max-width: var(--container); margin: 0 auto; }
+.services-note {
+  margin-top: 2.2rem; padding: 1.4rem 1.8rem; max-width: 42em;
+  border-left: 3px solid var(--blue); background: rgba(13, 76, 146, 0.06);
+  font-size: 1.15rem; line-height: 1.6; color: var(--text-on-light);
+}
+.services-note strong { color: var(--blue); font-weight: 700; }
 
 /* ==========================================================================
    Marquee
