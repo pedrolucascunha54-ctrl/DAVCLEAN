@@ -186,6 +186,41 @@
   });
 
   /* ------------------------------------------------------------------
+     Gradual word-by-word text reveal — tied to scroll position,
+     not a one-shot fade. Words light up progressively as the
+     paragraph scrolls through view.
+  ------------------------------------------------------------------ */
+  function splitIntoWords(el) {
+    if (el.children.length > 0) return null; // skip paragraphs with nested markup
+    const parts = el.textContent.split(/(\s+)/);
+    el.innerHTML = parts
+      .map((part) => (part.trim() === "" ? part : `<span class="word-reveal">${part}</span>`))
+      .join("");
+    return Array.from(el.querySelectorAll(".word-reveal"));
+  }
+
+  document
+    .querySelectorAll(".section-body, .diff-body p, .service-video p, .process-step p")
+    .forEach((p) => {
+      const words = splitIntoWords(p);
+      if (!words || !words.length) return;
+      gsap.set(words, { opacity: 0.16 });
+      ScrollTrigger.create({
+        trigger: p,
+        start: "top 95%",
+        end: "top 50%",
+        scrub: 0.4,
+        onUpdate: (self) => {
+          const n = words.length;
+          words.forEach((w, i) => {
+            const revealAt = i / n;
+            w.style.opacity = revealAt <= self.progress ? 1 : 0.16;
+          });
+        },
+      });
+    });
+
+  /* ------------------------------------------------------------------
      Lazy-loaded section videos — load + play only near viewport,
      pause when scrolled away to save bandwidth/battery.
   ------------------------------------------------------------------ */

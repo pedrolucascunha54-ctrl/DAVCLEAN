@@ -417,6 +417,8 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
    ========================================================================== */
 [data-reveal] { will-change: transform, opacity; }
 
+.word-reveal { display: inline-block; transition: opacity 0.25s ease-out; will-change: opacity; }
+
 /* ==========================================================================
    Responsive
    ========================================================================== */
