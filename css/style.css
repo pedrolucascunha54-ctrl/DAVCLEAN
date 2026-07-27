@@ -288,6 +288,11 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 .split-section.reverse { flex-direction: row-reverse; }
 .split-media { flex: 0 0 50%; position: sticky; top: 0; height: 100vh; overflow: hidden; align-self: flex-start; }
 .split-media video { width: 100%; height: 100%; object-fit: cover; background: var(--graphite); }
+.split-media::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 22%; pointer-events: none;
+}
+.split-section .split-media::after { right: 0; background: linear-gradient(to right, transparent, var(--paper)); }
+.split-section.reverse .split-media::after { left: 0; background: linear-gradient(to left, transparent, var(--paper)); }
 .split-content {
   flex: 0 0 50%; display: flex; flex-direction: column; justify-content: center;
   gap: 4.5rem; padding: 8rem var(--gutter);
@@ -494,6 +499,10 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
   .split-section, .split-section.reverse { flex-direction: column; min-height: 0; }
   .split-media { position: relative; flex: 0 0 auto; width: 100%; height: 60vh; top: auto; }
   .split-content { width: 100%; padding: 4.5rem var(--gutter); gap: 3rem; }
+  .split-media::after {
+    top: auto; bottom: 0; left: 0; right: 0; width: 100%; height: 22%;
+    background: linear-gradient(to bottom, transparent, var(--paper)) !important;
+  }
 }
 
 @media (max-width: 560px) {
