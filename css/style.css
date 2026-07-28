@@ -287,6 +287,27 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 .service-video p { color: var(--text-muted-dark); line-height: 1.7; font-size: 1.05rem; }
 
 /* ==========================================================================
+   Serviços — trio section: 3 items (cadeiras/estofados) in one section
+   ========================================================================== */
+.section-trio { padding: 4rem var(--gutter) 8rem; background: var(--paper); max-width: var(--container); margin: 0 auto; }
+.trio-item {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4vw; align-items: center;
+  padding: 4rem 0; border-top: 1px solid var(--gray-300);
+}
+.trio-item:first-child { border-top: none; }
+.trio-item.reverse { direction: rtl; }
+.trio-item.reverse > * { direction: ltr; }
+.trio-media { aspect-ratio: 4 / 3; overflow: hidden; border-radius: 4px; background: var(--graphite); }
+.trio-media video { width: 100%; height: 100%; object-fit: cover; }
+.trio-text .service-num { font-family: var(--font-mono); color: var(--blue); font-size: 0.8rem; }
+.trio-text h3 {
+  font-family: var(--font-display); font-weight: 600; text-transform: uppercase;
+  font-size: clamp(1.5rem, 2.2vw, 2.1rem); margin: 0.9rem 0 1rem; line-height: 1.1;
+  color: var(--text-on-light);
+}
+.trio-text p { color: var(--text-muted-light); line-height: 1.7; max-width: 32em; }
+
+/* ==========================================================================
    Serviços — split section (video on one half, content on the other)
    used to pair two related services in a single section
    ========================================================================== */
@@ -502,6 +523,7 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
   .section-stats, .section-gallery, .section-testimonials { padding-top: 7rem; padding-bottom: 7rem; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; gap: 0.5rem; }
+  .trio-item, .trio-item.reverse { grid-template-columns: 1fr; direction: ltr; gap: 1.6rem; padding: 2.6rem 0; }
   .split-section, .split-section.reverse { flex-direction: column; min-height: 0; }
   .split-media { position: relative; flex: 0 0 auto; width: 100%; height: 60vh; top: auto; }
   .split-content { width: 100%; padding: 4.5rem var(--gutter); gap: 3rem; }
