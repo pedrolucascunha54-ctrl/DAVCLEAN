@@ -99,6 +99,7 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
   box-shadow: 0 18px 40px -18px rgba(13,76,146,0.55);
 }
 .btn-primary:hover { background: var(--blue-deep); transform: translateY(-2px); }
+.inline-cta { display: flex; justify-content: center; margin-top: 3.5rem; }
 .btn-outline-light {
   border: 1px solid rgba(255,255,255,0.4);
   color: var(--text-on-dark);
